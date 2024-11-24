@@ -69,6 +69,7 @@ npm install
 
 3. Set up the database and `.env` file.
 4. Run the application:
+cd src
 npm run dev
 
 ## Testing 
