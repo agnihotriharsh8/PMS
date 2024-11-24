@@ -8,11 +8,9 @@ This is a backend API for a healthcare system built using **Express.js**. It inc
 - [Features](#features)
 - [API Endpoints](#api-endpoints)
 - [Setup and Installation](#setup-and-installation)
-- [Environment Variables](#environment-variables)
-- [Postman Collection](#postman-collection)
 - [Testing](#testing)
 - [Contributing](#contributing)
-- [License](#license)
+
 
 ## Tech Stack
 
@@ -63,6 +61,35 @@ Follow these steps to get your project up and running.
 
 ### 1. Clone the repository
 
-```bash
-git clone https://github.com/your-username/healthcare-api.git
-cd healthcare-api
+git clone https://github.com/agnihotriharsh8/PMS.git
+cd PMS
+
+2. Install dependencies:
+npm install
+
+3. Set up the database and `.env` file.
+4. Run the application:
+npm run dev
+
+## Testing 
+
+npm test
+
+## Contributing
+I welcome contributions! If you'd like to contribute to this project, please follow these steps:
+
+Fork the repository.
+Clone your fork to your local machine.
+
+git clone https://github.com/agnihotriharsh8/PMS.git
+Create a new branch for your changes:
+
+git checkout -b feature-name
+Make your changes and commit them:
+
+git add .
+git commit -m "Add a meaningful commit message"
+Push your changes:
+
+git push origin feature-name
+Create a pull request on GitHub.
