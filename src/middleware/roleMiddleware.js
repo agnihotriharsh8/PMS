@@ -1,0 +1,12 @@
+
+// Author: Harsh Agnihotri
+// Date : 23/11/2024
+
+const roleMiddleware = (roles) => (req, res, next) => {
+    if (!roles.includes(req.user.role)) {
+        return res.status(403).json({ error: 'Forbidden' });
+    }
+    next();
+};
+
+module.exports = roleMiddleware;

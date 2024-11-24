@@ -1,0 +1,228 @@
+{
+    "info": {
+      "_postman_id": "b01963ff-0000-0000-0000-2c02f82a3c7e",
+      "name": "Healthcare API - Postman Collection",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "description": "Postman collection for Healthcare API with JWT Authentication, Role-based Access (Patient, Doctor, Admin), Patient Record Management, and Appointment Management."
+    },
+    "item": [
+      {
+        "name": "Authentication",
+        "item": [
+          {
+            "name": "Register User (Admin)",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\"name\":\"Admin\",\"email\":\"admin.1@example.com\",\"password\":\"password123\",\"role\":\"Admin\"}"
+              },
+              "url": {
+                "raw": "http://localhost:3000/api/auth/register",
+                "host": ["localhost"],
+                "port": "3000",
+                "path": ["api", "auth", "register"]
+              }
+            }
+          },
+          {
+            "name": "Login User",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\"email\":\"admin.1@example.com\",\"password\":\"password123\"}"
+              },
+              "url": {
+                "raw": "http://localhost:3000/api/auth/login",
+                "host": ["localhost"],
+                "port": "3000",
+                "path": ["api", "auth", "login"]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Patient Record Management",
+        "item": [
+          {
+            "name": "Create Patient Record (Doctor/Admin)",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer <JWT_TOKEN>"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\"name\":\"Pat1\",\"age\":30,\"medical_history\":\"None\"}"
+              },
+              "url": {
+                "raw": "http://localhost:3000/api/patients",
+                "host": ["localhost"],
+                "port": "3000",
+                "path": ["api", "patients"]
+              }
+            }
+          },
+          {
+            "name": "Get Patient Records (Doctor/Admin)",
+            "request": {
+              "method": "GET",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer <JWT_TOKEN>"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/api/patients",
+                "host": ["localhost"],
+                "port": "3000",
+                "path": ["api", "patients"]
+              }
+            }
+          },
+          {
+            "name": "Update Patient Record (Doctor/Admin)",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer <JWT_TOKEN>"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\"name\":\"Pat1\",\"age\":31,\"medical_history\":\"Hypertension\"}"
+              },
+              "url": {
+                "raw": "http://localhost:3000/api/patients/1",
+                "host": ["localhost"],
+                "port": "3000",
+                "path": ["api", "patients", "1"]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Appointment Management",
+        "item": [
+          {
+            "name": "Create Appointment (Patient)",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer <JWT_TOKEN>"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\"patient_id\":1,\"doctor_id\":2,\"appointment_date\":\"2024-11-25T14:30:00Z\"}"
+              },
+              "url": {
+                "raw": "http://localhost:3000/api/appointments",
+                "host": ["localhost"],
+                "port": "3000",
+                "path": ["api", "appointments"]
+              }
+            }
+          },
+          {
+            "name": "Get Appointments (Doctor/Admin)",
+            "request": {
+              "method": "GET",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer <JWT_TOKEN>"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/api/appointments",
+                "host": ["localhost"],
+                "port": "3000",
+                "path": ["api", "appointments"]
+              }
+            }
+          },
+          {
+            "name": "Update Appointment (Doctor/Admin)",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer <JWT_TOKEN>"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\"status\":\"Confirmed\"}"
+              },
+              "url": {
+                "raw": "http://localhost:3000/api/appointments/1",
+                "host": ["localhost"],
+                "port": "3000",
+                "path": ["api", "appointments", "1"]
+              }
+            }
+          },
+          {
+            "name": "Delete Appointment (Admin)",
+            "request": {
+              "method": "DELETE",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer <JWT_TOKEN>"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/api/appointments/1",
+                "host": ["localhost"],
+                "port": "3000",
+                "path": ["api", "appointments", "1"]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+  
